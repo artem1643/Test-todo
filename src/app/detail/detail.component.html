@@ -1,0 +1,8 @@
+@if (todo(); as todo){
+<a [routerLink]="['/tasks']">back</a>
+
+<h2>{{ todo.title }}</h2>
+<p>{{ todo.description }}</p>
+} @else {
+<p>Could not find todo...</p>
+}

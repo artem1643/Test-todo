@@ -1,0 +1,14 @@
+<h2>Todo</h2>
+<button (click)="isOpen.set(true)">Add todo</button>
+<app-modal [isOpen]="isOpen()">
+  <ng-template>
+    <app-todo-form
+      (todoSubmitted)="createTodo($event); isOpen.set(false)"
+    ></app-todo-form>
+  </ng-template>
+</app-modal>
+<app-todo-list
+  [todos]="todoSrc.todos()"
+  (removeTodo)="todoSrc.removeTodo($event)"
+  (updateStatus)="todoSrc.updateStatus($event)"
+></app-todo-list>

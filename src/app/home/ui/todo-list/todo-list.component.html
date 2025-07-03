@@ -1,0 +1,16 @@
+<ul>
+  @for(todo of todos(); track $index){
+  <li>
+    <a [routerLink]="['/tasks', todo.id]"> {{ todo.title }}</a>
+
+    <button (click)="updateStatus.emit(todo.id)">Update</button>
+    <button (click)="removeTodo.emit(todo.id)">Delete</button>
+    @if (todo.status){
+    <span>✅</span>
+    }
+  </li>
+
+  } @empty {
+  <li>Nothing to do!</li>
+  }
+</ul>
